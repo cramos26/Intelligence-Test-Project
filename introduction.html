@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title> Pseudo Intelligence Test #1 </title>
+    <link rel="stylesheet" href="stylesheet.css"/>
+    <script src= "pseudojavascript.js"></script>
+
+</head>
+<body class="backgroundpage1">
+  <div style="width: 100%">
+<div style="width: 80%; float: left;">
+
+<h1> Welcome! </h1>
+<button onclick="introduceguest()">Start here!</button>
+<h2 id="Introduction"> </h2>
+
+<script>
+function checkanswer() {
+  Answer = document.getElementById("usertext").value;
+  if (Answer == 10) {
+    document.getElementById("usertext").value = "Correct!"
+  }
+  else {
+    document.getElementById("usertext").value = "Wrong!"
+  }
+}
+</script>
+</body>
+
+</html>
