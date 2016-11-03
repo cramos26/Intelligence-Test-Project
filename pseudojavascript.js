@@ -79,4 +79,4 @@ var text;
 }
   document.getElementById("finalcount").innerHTML = text;
 */
-  }
+  
