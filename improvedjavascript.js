@@ -1,66 +1,87 @@
-var totalpoints;
-var correctanswerforfirst = 10;
-var correctanswerforsecond = 10;
-var correctanswerforthird = 10;
+var totaltries = 0;
+var totalpoints = 0;
+
 
 function checkfirst()
 {
   var userfirstanswer;
   userfirstanswer = document.getElementById("firstproblem").value;
-  if (isNaN('userfirstanswer') == true)
+  if (isNaN(userfirstanswer) == true)
   { alert("Only numerical answers are accepted!")}
-  else if (userfirstanswer == correctanswerforfirst)
-  { totalpoints += 1;
-  setCookie("pointsforfirst",totalpoints)}
+  else if (userfirstanswer == 10)
+  { totalpoints++;
+  setCookie("totalpoints",totalpoints, 1)
+  alert("Correct fam!")}
   else
-  { totalpoints = totalpoints;
-  setCookie("pointsforfirst", totalpoints)}
+  { totaltries ++;
+  setCookie("totaltries", totaltries, 1)
+  alert("What a scrub!")}
 }
 
-function checksecond()
-{
-  var usersecondanswer;
-  usersecondanswer = document.getElementById("secondproblem").value;
-  if (isNaN('usersecondanswer') == true)
-  { alert("Only numerical answers are accepted!")}
-  else if (usersecondanswer == correctanswerforsecond)
-  { totalpoints += 1;
-  setCookie("pointsforsecond",totalpoints)}
-  else
-  { totalpoints = totalpoints;
-  setCookie("pointsforsecond", totalpoints)}
-}
+    function checksecond()
+    {
+      var totaltries = getCookie("totaltries");
+      var totalpoints = getCookie("totalpoints")
+      var usersecondanswer;
+      usersecondanswer = document.getElementById("secondproblem").value;
+      if (isNaN(usersecondanswer) == true)
+      { alert("Only numerical answers are accepted!")}
+      else if (usersecondanswer == 10)
+      { totalpoints++;
+      setCookie("totalpoints",totalpoints, 1)
+      alert("Correct fam!")}
+      else
+      { totaltries ++;
+      setCookie("totaltries", totaltries, 1)
+      alert("What a scrub!")}
 
-function checkthird()
-{
-  var userthirdanswer;
-  userthirdanswer = document.getElementById("thirdproblem").value;
-  if (isNaN('userthirdanswer') == true)
-  { alert("Only numerical answers are accepted!")}
-  else if (userthirdanswer == correctanswerforthird)
-  { totalpoints += 1;
-  setCookie("pointsforthird",totalpoints)}
-  else
-  { totalpoints = totalpoints;
-  setCookie("pointsforthird", totalpoints)}
-}
+    }
 
-function convertingpointstopercentages(points)
-{
-  return points * 33 + "%";
-}
+        function checkthird()
+        {
+          var totaltries = getCookie("totaltries");
+          var totalpoints = getCookie("totalpoints")
+          var userthirdanswer;
+          userthirdanswer = document.getElementById("thirdproblem").value;
+          if (isNaN(userthirdanswer) == true)
+          { alert("Only numerical answers are accepted!")}
+          else if (userthirdanswer == 10)
+          { totalpoints++;
+          setCookie("totalpoints",totalpoints, 1)
+          alert("Correct fam!")}
+          else
+          { totaltries ++;
+          setCookie("totaltries", totaltries, 1)
+          alert("What a scrub!")}
+        }
 
-function calculatepercentage()
-{
-  var firstpoints = getCookie("pointsforfirst");
-  var secondpoints = getCookie("pointsforsecond");
-  var thirdpoints = getCookie("pointsforthird");
-  firstpercentage = convertingpointstopercentages(firstpoints);
-  secondpercentage = convertingpointstopercentages(secondpoints);
-  thirdpercentage = convertingpointstopercentages(thirdpoints);
-  totalpercentage = firstpercentage + secondpercentage + thirdpercentage;
-  document.getElementById("firststat").innerHTML = firstpercentage;
-  document.getElementById("secondstat").innerHTML = secondpercentage;
-  document.getElementById("thirdstat").innerHTML = thirdpercentage;
-  document.getElementById("finalcount").innerHTML = totalpercentage;
-}
+            function calculatepercentage()
+            {
+              var totaltries = getCookie("totaltries");
+              var totalpoints = getCookie("totalpoints")
+              var totalpercentage = (totalpoints / totaltries) * 100;
+              document.getElementById("finalcount").innerHTML = totalpercentage + "%";
+            }
+
+            function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+            }
+
+            function getCookie(cname)
+            {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+            }
+            }
+            return "";
+            }

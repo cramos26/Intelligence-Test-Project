@@ -11,7 +11,7 @@ function introduceguest()
 function checknumbersonly ()
 {
   var input = document.getElementById("usertext").value
-  if (NaN(input)==true)
+  if (isNaN(input)==true)
   {
     document.getElementById("paragraph").innerHTML = "Answer must be a number!"
   }
@@ -79,4 +79,3 @@ var text;
 }
   document.getElementById("finalcount").innerHTML = text;
 */
-  
