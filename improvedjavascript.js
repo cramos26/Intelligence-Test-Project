@@ -8,7 +8,7 @@ function checkfirst()
   userfirstanswer = document.getElementById("firstproblem").value;
   if (isNaN(userfirstanswer) == true)
   { alert("Only numerical answers are accepted!")}
-  else if (userfirstanswer == 10)
+  else if (userfirstanswer == 2)
   { totalpoints++;
   setCookie("totalpoints",totalpoints, 1)
   alert("Correct fam!")}
@@ -26,7 +26,7 @@ function checkfirst()
       usersecondanswer = document.getElementById("secondproblem").value;
       if (isNaN(usersecondanswer) == true)
       { alert("Only numerical answers are accepted!")}
-      else if (usersecondanswer == 10)
+      else if (usersecondanswer == 44)
       { totalpoints++;
       setCookie("totalpoints",totalpoints, 1)
       alert("Correct fam!")}
@@ -45,7 +45,7 @@ function checkfirst()
           userthirdanswer = document.getElementById("thirdproblem").value;
           if (isNaN(userthirdanswer) == true)
           { alert("Only numerical answers are accepted!")}
-          else if (userthirdanswer == 10)
+          else if (userthirdanswer == 120)
           { totalpoints++;
           setCookie("totalpoints",totalpoints, 1)
           alert("Correct fam!")}
@@ -85,3 +85,5 @@ function checkfirst()
             }
             return "";
             }
+
+/* Cesar Ramos */
